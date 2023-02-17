@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Noto+Sans&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    transition: .2s;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    background: white;
+    width: 100vw;
+    height: 80vh;
+}
+header{
+    width: 100%;
+    background: #ededed;
+    padding: 5px;
+    box-shadow: 0 3px 15px rgb(0, 0, 0, .3);
+    box-sizing: border-box;
+}
+header div.center{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+    margin: auto;
+}
+header div.center h1{
+    width: 200px;
+}
+header div.center h1 img{
+    width: 100%;
+}
+header div.center a{
+    color: #0084ff;
+    padding: 7px 15px;
+    font-size: 1.7rem;
+    border-radius: 100px;
+    border: 2px solid #0084ff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: .2s;
+}
+header div.center a:hover{
+    color: white;
+    background: #0084ff;
+    transition: .2s;
+}
+
+/* BTN MODO ESCURO */
+div.container_btn_ME label{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+div.container_btn_ME div.box_btn_ME{
+    width: 48px;
+    height: 24px;
+    position: relative;
+}
+div.container_btn_ME div.box_btn_ME input{
+    opacity: 0;
+}
+div.container_btn_ME span.btn_ME{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    box-shadow: inset -1px -1px 8px rgb(0, 0, 0, .3);
+    transition: .39s;
+}
+div.container_btn_ME span.text{
+    margin-right: 8px;
+    font-size: 1.34rem;
+    font-weight: bold;
+}
+div.container_btn_ME span.btn_ME::before{
+    content: "";
+    width: 24px;
+    height: 24px;
+    border-radius: 100px;
+    background: #c2c2c2;
+    position: absolute;
+    left: 0;
+    transition: .25s;
+}
+div.container_btn_ME input:checked + span.btn_ME{
+    transition: .25s;
+    background-color: #0084ff;
+    box-shadow: inset 1px 1px 8px rgb(0, 0, 0, .9);
+}
+div.container_btn_ME input:checked + span.btn_ME::before{
+    transform: translateX(100%);
+    transition: .25s;
+}
+section.tabela{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+section.tabela table,
+section.tabela table thead,
+section.tabela table tr,
+section.tabela table th,
+section.tabela table tbody{
+    border-collapse: collapse;
+}
+section.tabela table{
+    background: #0084ff;
+    box-shadow: 3px 3px 14px rgb(0, 0, 0, .3);
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+section.tabela table thead{
+    width: 200px;
+    
+}
+section.tabela table thead th{
+    text-align: left;
+    margin: 0 10px;
+    padding: 13px 12px 13px 13px;
+    font-weight: 600;
+    font-size: 2rem;
+    color: white;
+}
+section.tabela table tbody tr{
+    background: white;
+    padding: 5px;
+}
+section.tabela table tr:nth-child(even){
+    background: #f0f0f0;
+}
+section.tabela table tbody td{
+    font-size: 1.65rem;
+    padding: 10px 15px;
+    font-weight: 500;
+    color: #404040;
+}
+section.tabela table tbody a.ver{
+    color:#00a6ff;
+    font-size: 2.35rem;
+}
+section.tabela table tbody a.editar{
+    color:#f0d002;
+    font-size: 2.35rem;
+}
+section.tabela table tbody a.excluir{
+    color:#d40606;
+    font-size: 2.35rem;
+}
+section.tabela table tbody a.ver:hover{
+    color:#0073ff;
+    font-size: 2.35rem;
+}
+section.tabela table tbody a.editar:hover{
+    color:#ffea00;
+    font-size: 2.35rem;
+}
+section.tabela table tbody a.excluir:hover{
+    color:#fa0000;
+    font-size: 2.35rem;
+}
+section.tabela table tbody td:first-child,
+section.tabela table thead th:first-child{
+    padding-left: 13px;
+}
+/* DARK MODE */
+.dark{
+    background: #000b14;
+}
+.dark header{
+    background: #021321;
+}
+.dark span.text{
+    color: #afc7db;
+}
+.dark header div.center a{
+    color: #afcae0;
+    border: 1px solid #afcae0;
+}
+.dark header div.center a:hover{
+    color: black;
+    background: #afcae0;
+}
+.dark section.tabela table tbody tr{
+    background: #001221;
+}
+.dark section.tabela table tr:nth-child(even){
+    background: #000e1a;
+}
+.dark section.tabela table tbody td{
+    color: #afc7db;
+}
+@media(max-width: 830px){
+    header div.center{
+        width: 97%;
+    }
+    html{
+        font-size: 54%;
+    }
+    header div.center h1{
+        width: 165px;
+    }
+}
+@media(max-width: 520px){
+    html{
+        font-size: 48%;
+    }
+    header div.center h1{
+        width: 125px;
+    }
+    header div.center a{
+        border: none;
+        padding: 0;
+        text-decoration: underline;
+    }
+    header div.center a:hover{
+        color: black;
+        background: none;
+    }
+    /* DARK MODE */
+    .dark header div.center a{
+        color: #afcae0;
+        border: none;
+    }
+    .dark header div.center a:hover{
+        color: white;
+        background: none;
+    }
+    div.container_btn_ME div.box_btn_ME{
+        width: 39px;
+        height: 20px;
+    }
+    div.container_btn_ME span.btn_ME::before{
+        width: 20px;
+        height: 20px;
+    }
+}
+@media(max-width: 430px){
+    html{
+        font-size: 38%;
+    }
+    header div.center h1{
+        width: 108px;
+    }
+}
