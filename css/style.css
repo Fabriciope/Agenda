@@ -216,6 +216,98 @@ section.tabela table thead th:first-child{
         width: 165px;
     }
 }
+/* CONTAINER ADICIONAR CONTATO */
+section.add_contato{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(0, 0, 0, .2);
+}
+section.add_contato div.box_center{
+    position: relative;
+    background: white;
+    border-radius: 7px;
+    box-shadow: 3px 3px 15px rgb(0, 0, 0, .4);
+}
+section.add_contato div.box_center div.x{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: content-box;
+    position: absolute;
+    right: 0;
+    top: -60px;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 100px;
+    background: rgb(255, 255, 255, .7);
+}
+section.add_contato div.box_center i.x{
+    font-size: 3.3rem;
+    color: #1a1a1a;
+}
+section.add_contato div.box_center form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+section.add_contato div.box_center form h3{
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+section.add_contato div.box_center form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+section.add_contato div.box_center form div label{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+section.add_contato div.box_center form div input,
+section.add_contato div.box_center form div textarea{
+    font-size: 1.67rem;
+    font-weight: 300;
+    color: black;
+    border: 1px solid black;
+    outline: none;
+    padding: 6px 5px;
+    border-radius: 7px;
+    width: 500px;
+    resize: vertical;
+}
+/* section.add_contato div.box_center form div input[type="number"]{
+    -webkit-appearance: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+} */
+section.add_contato div.box_center form div textarea{
+    margin-bottom: 10px;
+}
+section.add_contato div.box_center form  button{
+    width: 100%;
+    background: #0084ff;
+    font-size: 2.3rem;
+    padding: 5px 0;
+    border: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 7px;
+    box-shadow: 2px 2px 12px rgb(0, 0, 0, .5);
+}
 @media(max-width: 520px){
     html{
         font-size: 48%;
