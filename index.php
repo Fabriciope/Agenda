@@ -1,3 +1,7 @@
+<?php
+include_once "helpers/recuperarRegistros.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +10,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://kit.fontawesome.com/d5c56409b7.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/ajax.js"></script>
     <title>Minha Agenda</title>
 </head>
 <body id="body">
     <header>
         <div class="center">
             <h1><img src="img/logo-agenda.png" alt="logo-agenda"></h1>
-           <a href="#">Adicionar contato</a>
+          <button id="btn_add_contato">Adicionar contato</button>
             <div class="container_btn_ME">
                 <label>
                     <span class="text">Tema escuro</span>
@@ -34,67 +40,54 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php
+                    foreach($registros as $registro){
+                        extract($registro);?>
+
                     <tr>
                         <td>
-                            sergio
+                            <?=$nome?>
                         </td>
                         <td>
-                            444444
+                            <?=$telefone?>
                         </td>
                         <td>
-                           <a class="ver" href="#"><i class="fas fa-eye"></i></a>
+                           <a class="ver" href="#<?=$id?>"><i class="fas fa-eye"></i></a>
                         </td>
                         <td>
-                           <a class="editar" href="#"><i class="fas fa-edit"></i></a>
+                           <a class="editar" href="#<?=$id?>"><i class="fas fa-edit"></i></a>
                         </td>
                         <td>
-                           <a class="excluir" href="#"><i class="fas fa-trash-alt"></i></a>
+                           <a class="excluir" href="#<?=$id?>"><i class="fas fa-trash-alt"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            Luiz fernando enrique de castro oliveira junior
-                        </td>
-                        <td>
-                           (11) 94545-9642
-                        </td>
-                        <td>
-                           <a class="ver" href="#"><i class="fas fa-eye"></i></a>
-                        </td>
-                        <td>
-                           <a class="editar" href="#"><i class="fas fa-edit"></i></a>
-                        </td>
-                        <td>
-                           <a class="excluir" href="#"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
+                  <?php } ?>
                 </tbody>
             </table>
-    </section>
+    </section>  
 
-    <section class="add_contato">
+    <section id="add_contato">
         <div class="box_center">
-            <div class="x"><i class="fa-solid fa-xmark x"></i></div>
-            <form action="">
+            <button id="voltar">Voltar</button>
+            <form id="form" onsubmit="return false">
                 <h3>Adicionar Contato</h3>
-
                 <div>
                     <label for="">Nome do contato:</label>
-                    <input type="text" placeholder="Nome:">
+                    <input id="nome" type="text" placeholder="Ex: João">
                 </div>
                 <div>
                     <label for="">Telefone do contato:</label>
-                    <input type="number"placeholder="Telefone: (XX) 9XXXX-XXXX">
+                    <input id="telefone" type="tel" maxlength="14" onkeypress="filtrar(this)" pattern="\([0-9]{2}\)[9][0-9]{4}-[0-9]{4}" placeholder="Ex: (11)9XXXX-XXXX">
                 </div>
                 <div>
                     <label for="">Observações:</label>
-                    <textarea id=""  rows="8" placeholder="Descreva alguma observação sobre este contato: (opcional)"></textarea>
+                    <textarea id="observacao"  rows="8" placeholder="Descreva alguma observação sobre este contato: (opcional)"></textarea>
                 </div>
-                <button>Cadastrar</button>
+                <button class="cadastrar" onclick="cadastrarPessoa()">Cadastrar</button>
             </form>
         </div>
     </section>
-    <script src="js/scripts.js"></script>
+    <script src="js/interacoes.js"></script>
 </body>
 </html>
 

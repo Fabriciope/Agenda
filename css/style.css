@@ -7,6 +7,9 @@
     box-sizing: border-box;
     transition: .2s;
 }
+button{
+    border: none;
+}
 html{
     font-size: 62.5%;
 }
@@ -35,7 +38,7 @@ header div.center h1{
 header div.center h1 img{
     width: 100%;
 }
-header div.center a{
+header div.center button{
     color: #0084ff;
     padding: 7px 15px;
     font-size: 1.7rem;
@@ -43,9 +46,10 @@ header div.center a{
     border: 2px solid #0084ff;
     text-decoration: none;
     font-weight: bold;
+    cursor: pointer;
     transition: .2s;
 }
-header div.center a:hover{
+header div.center button:hover{
     color: white;
     background: #0084ff;
     transition: .2s;
@@ -159,7 +163,7 @@ section.tabela table tbody a.editar{
     font-size: 2.35rem;
 }
 section.tabela table tbody a.excluir{
-    color:#d40606;
+    color: #a40606;
     font-size: 2.35rem;
 }
 section.tabela table tbody a.ver:hover{
@@ -178,32 +182,120 @@ section.tabela table tbody td:first-child,
 section.tabela table thead th:first-child{
     padding-left: 13px;
 }
-/* DARK MODE */
-.dark{
-    background: #000b14;
+/* CONTaINER aDICIONaR CONTaTO */
+section#add_contato{
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgb(0, 0, 0, .5);
 }
-.dark header{
-    background: #021321;
+section#add_contato.active{
+    display: flex;
 }
-.dark span.text{
-    color: #afc7db;
+section#add_contato div.box_center{
+    position: relative;
+    padding: 30px;
+    background: white;
+    border-radius: 7px;
+    overflow: hidden;
+    box-shadow: 3px 3px 15px rgb(0, 0, 0, .4);
 }
-.dark header div.center a{
-    color: #afcae0;
-    border: 1px solid #afcae0;
+
+section#add_contato div.box_center form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
 }
-.dark header div.center a:hover{
+section#add_contato div.box_center button#voltar{
+    padding: 4px 11px;
+    align-self: flex-start;
+    font-size: 1.75rem;
+    font-weight: 500;
+    margin-top: 5px;
+    background: transparent;
+    text-decoration: none;
+    border: 1px solid #0084ff;
+    border-radius: 7px;
+    color: #0084ff;
+    cursor: pointer;
+}
+section#add_contato div.box_center  button#voltar:hover{
+    color: white;
+    background: #0084ff;
+    box-shadow: 2px 2px 10px rgb(0, 0, 0, .3);
+}
+section#add_contato div.box_center p{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color:black;
+    font-weight: 500;
+    font-size: 1.55rem;
+    text-align: center;
+    transition: 4s color;
+    padding: 5px 0;
+}
+section#add_contato div.box_center p.erro{
+    background: #ff5f5f7a;
+}
+section#add_contato div.box_center p.sucesso{
+    background: #1eb7fd7e;
+}
+section#add_contato div.box_center form h3{
+    font-size: 2.95rem;
+    margin-bottom: 15px;
+}
+section#add_contato div.box_center form div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+}
+section#add_contato div.box_center form div label{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+section#add_contato div.box_center form div input,
+section#add_contato div.box_center form div textarea{
+    font-size: 1.67rem;
+    font-weight: 300;
     color: black;
-    background: #afcae0;
+    border: 1px solid black;
+    outline: none;
+    padding: 6px 5px;
+    border-radius: 7px;
+    width: 500px;
+    resize: vertical;
 }
-.dark section.tabela table tbody tr{
-    background: #001221;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+} 
+section#add_contato div.box_center form div textarea{
+    margin-bottom: 10px;
 }
-.dark section.tabela table tr:nth-child(even){
-    background: #000e1a;
-}
-.dark section.tabela table tbody td{
-    color: #afc7db;
+section#add_contato div.box_center form  button.cadastrar{
+    width: 100%;
+    background: #0084ff;
+    font-size: 2.3rem;
+    padding: 5px 0;
+    border: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 7px;
+    box-shadow: 2px 2px 12px rgb(0, 0, 0, .5);
+    cursor: pointer;
 }
 @media(max-width: 830px){
     header div.center{
@@ -215,98 +307,6 @@ section.tabela table thead th:first-child{
     header div.center h1{
         width: 165px;
     }
-}
-/* CONTAINER ADICIONAR CONTATO */
-section.add_contato{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgb(0, 0, 0, .2);
-}
-section.add_contato div.box_center{
-    position: relative;
-    background: white;
-    border-radius: 7px;
-    box-shadow: 3px 3px 15px rgb(0, 0, 0, .4);
-}
-section.add_contato div.box_center div.x{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: content-box;
-    position: absolute;
-    right: 0;
-    top: -60px;
-    width: 35px;
-    height: 35px;
-    padding: 5px;
-    border-radius: 100px;
-    background: rgb(255, 255, 255, .7);
-}
-section.add_contato div.box_center i.x{
-    font-size: 3.3rem;
-    color: #1a1a1a;
-}
-section.add_contato div.box_center form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 15px;
-}
-section.add_contato div.box_center form h3{
-    font-size: 2.8rem;
-    margin-bottom: 15px;
-}
-section.add_contato div.box_center form div{
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 12px;
-}
-section.add_contato div.box_center form div label{
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 5px;
-}
-section.add_contato div.box_center form div input,
-section.add_contato div.box_center form div textarea{
-    font-size: 1.67rem;
-    font-weight: 300;
-    color: black;
-    border: 1px solid black;
-    outline: none;
-    padding: 6px 5px;
-    border-radius: 7px;
-    width: 500px;
-    resize: vertical;
-}
-/* section.add_contato div.box_center form div input[type="number"]{
-    -webkit-appearance: none;
-}
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-} */
-section.add_contato div.box_center form div textarea{
-    margin-bottom: 10px;
-}
-section.add_contato div.box_center form  button{
-    width: 100%;
-    background: #0084ff;
-    font-size: 2.3rem;
-    padding: 5px 0;
-    border: none;
-    color: white;
-    font-weight: 500;
-    border-radius: 7px;
-    box-shadow: 2px 2px 12px rgb(0, 0, 0, .5);
 }
 @media(max-width: 520px){
     html{
@@ -324,7 +324,7 @@ section.add_contato div.box_center form  button{
         color: black;
         background: none;
     }
-    /* DARK MODE */
+    /* DaRK MODE */
     .dark header div.center a{
         color: #afcae0;
         border: none;
@@ -349,4 +349,57 @@ section.add_contato div.box_center form  button{
     header div.center h1{
         width: 108px;
     }
+}
+/* DaRK MODE */
+.dark{
+    background: #000b14;
+}
+.dark header{
+    background: #021321;
+}
+.dark span.text{
+    color: #afc7db;
+}
+.dark header div.center button{
+    color: #afcae0;
+    border: 1px solid #afcae0;
+    background: transparent;
+}
+.dark header div.center button:hover{
+    color: black;
+    background: #afcae0;
+}
+.dark section.tabela table tbody tr{
+    background: #001221;
+}
+.dark section.tabela table tr:nth-child(even){
+    background: #000e1a;
+}
+.dark section.tabela table tbody td{
+    color: #afc7db;
+}
+.dark section#add_contato div.box_center{
+    background: #001221;
+}
+.dark section#add_contato div.box_center button#voltar{
+    color: #afcae0;
+    border: 1px solid #afcae0;
+}
+.dark section#add_contato div.box_center button#voltar:hover{
+    color: black;
+    background: #afcae0;
+}
+.dark section#add_contato div.box_center form h3,
+.dark section#add_contato div.box_center form label{
+    color: #d3e5f5;
+}
+.dark section#add_contato div.box_center form div input,
+.dark section#add_contato div.box_center form div textarea{
+    background: #001c33;
+    border: none;
+    color: #afc7db;
+}
+.dark section#add_contato div.box_center form  button.cadastrar{
+    color: black;
+    background: #afcae0;
 }
