@@ -37,8 +37,11 @@ session_start();
                             <a class="excluir" href="helpers/deletarContato.php?id=<?=$id?>"><i class="fas fa-trash-alt"></i></a>
                             </td>
                         </tr>
-                  <?php } ?>
-                </tbody>
+                  <?php }
+                  if(count($contatos) == 0){
+                    echo '<h2> Insira novos contatos </h2>';
+                  } ?>
+                </tbody>            
             </table>
     </section>
 </body>
