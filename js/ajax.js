@@ -49,7 +49,6 @@ function cadastrarPessoa(){
                 p.innerHTML= 'Cadastrado com sucesso!';
                 btnCadastrar.innerHTML= 'cadastrar';
 
-
                 document.getElementById('nome').value= '';
                 document.getElementById('telefone').value= '';
                 document.getElementById('observacao').value= '';
@@ -60,6 +59,4 @@ function cadastrarPessoa(){
         }
     }
     xmlHTTP.send(formData);
-    console.log(formData);
-    console.log(xmlHTTP);
 }
