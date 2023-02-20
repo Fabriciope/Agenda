@@ -2,12 +2,12 @@
 section#add_contato{
     width: 100%;
     background: transparent;
+    position: relative;
 }
 section#add_contato div.box_center{
-    position: relative;
     width: 58%;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 22px;
     padding: 30px;
     background: transparent;
 }
@@ -40,18 +40,19 @@ section#add_contato div.box_center  a.voltar:hover{
 }
 
 
-/* mensagem err */
+/* mensagem erro */
 section#add_contato div.box_center p{
     position: absolute;
-    top: 0;
+    top: -10px;
     left: 50%;
     transform: translateX(-50%);
     color:black;
     font-weight: 500;
-    font-size: 1.55rem;
+    font-size: 1.33rem;
     text-align: center;
     border-radius: 4px;
-    padding: 7px 15px;
+    padding: 5px 13px;
+    white-space: nowrap;
 }
 section#add_contato div.box_center p.erro{
     background: #ff5f5f7a;

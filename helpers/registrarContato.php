@@ -1,28 +1,31 @@
 <?php
+
 include_once "connection.php";
 
 session_start();
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
 
-$validacaoContato= empty($_POST['nome']) || empty($_POST['telefone']) ? true : false;
+$validacaoContato= empty($_POST['nome']) || empty($_POST['telefone']) || mb_strlen($_POST['nome'], "UTF-8") < 3 ? true : false;
 if($validacaoContato){
     $_SESSION['msg']= 'erro';
+    $_SESSION['nomeErro']= $_POST['nome'];
+    $_SESSION['telefoneErro']= $_POST['telefone'];
+    $_SESSION['observacaoErro']= $_POST['observacao'];
     header('location: ../addContato.php');
     die();
 }
 
-
-
 $query = 'INSERT INTO contatos(nome, telefone, observacao) VALUES(:nome, :telefone, :observacao)';
-$stmp= $conn->prepare($query);
-$stmp->bindValue(':nome', $_POST['nome']);
-$stmp->bindValue(':telefone', $_POST['telefone']);
-$stmp->bindValue(':observacao', $_POST['observacao']);
-$stmp->execute();
+
+$query= $conn->prepare($query);
+$query->bindValue(':nome',trim(ucfirst($_POST['nome'])));
+$query->bindValue(':telefone',  intval($_POST['telefone']));
+$query->bindValue(':observacao', trim($_POST['observacao']));
+$query->execute();
+
 $_SESSION['msg']= 'sucesso';
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+
+unset($_SESSION['nomeErro']);
+unset($_SESSION['telefoneErro']);
+unset($_SESSION['observacaoErro']);
+
 header('location: ../addContato.php');
